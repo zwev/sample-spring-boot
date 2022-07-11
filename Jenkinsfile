@@ -19,12 +19,15 @@ pipeline {
             docker { image 'emeraldsquad/sonar-scanner:latest' } }
             steps {
                 sh 'echo scanning!'
-                dockerImage = docker.build("toomanycooks/junkrepo:${env.BUILD_NUMBER}")
+                
             }
         }
         stage('docker build') {
             steps {
-                sh 'echo docker build'
+                script {
+                    echo "Building docker image!"
+                    dockerImage = docker.build("toomanycooks/junkrepo:${env.BUILD_NUMBER}")
+                }
             }
         }
         stage('docker push') {
