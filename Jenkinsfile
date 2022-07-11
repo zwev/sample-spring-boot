@@ -25,7 +25,7 @@ pipeline {
         stage('docker build') {
             steps {
                 script {
-                    sh 'Building docker image!'
+                    echo "Building docker image!"
                     dockerImage = docker.build("toomanycooks/junkrepo:${env.BUILD_NUMBER}")
                 }
             }
