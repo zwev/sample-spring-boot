@@ -5,7 +5,7 @@ LABEL maintainer "Cognizant"
 LABEL version=1.0
 
 USER root
-
-COPY --from=build build/libs/spring-boot.jar $APP_LOC/app.jar
+WORKDIR /home/app
+COPY build/libs/spring-boot.jar $APP_LOC/app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]
