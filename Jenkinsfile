@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
         environment {
         ENV_DOCKER = credentials('dockerhub')
         DOCKERIMAGE = "toomanycooks/junkrepo"
@@ -25,7 +25,7 @@ pipeline {
         stage('docker build') {
             steps {
                 script {
-                    echo "Building docker image!"
+                    sh 'Building docker image!'
                     dockerImage = docker.build("toomanycooks/junkrepo:${env.BUILD_NUMBER}")
                 }
             }
