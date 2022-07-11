@@ -3,7 +3,7 @@ pipeline {
         environment {
         ENV_DOCKER = credentials('dockerhub')
         DOCKERIMAGE = "toomanycooks/junkrepo"
-        EKS_CLUSTER_NAME = "arn:aws:eks:us-east-1:855430746673:cluster/sre-lab"
+        EKS_CLUSTER_NAME = "sre-lab"
     }
     stages {
         stage('build') {
