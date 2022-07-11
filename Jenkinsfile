@@ -2,8 +2,8 @@ pipeline {
     agent none
         environment {
         ENV_DOCKER = credentials('dockerhub')
-        DOCKERIMAGE = "dummy/dummy"
-        EKS_CLUSTER_NAME = "demo-cluster"
+        DOCKERIMAGE = "toomanycooks/junkrepo"
+        EKS_CLUSTER_NAME = "arn:aws:eks:us-east-1:855430746673:cluster/sre-lab"
     }
     stages {
         stage('build') {
