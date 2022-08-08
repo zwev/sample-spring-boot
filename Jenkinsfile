@@ -7,7 +7,7 @@ pipeline {
     }
     stages {
         stage('build') {
-            agent {
+            agent any {
                 docker { image 'openjdk:11-jdk' }
             }
             steps {
@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('sonarqube') {
-        agent {
+        agent any {
             docker { image 'emeraldsquad/sonar-scanner:latest' } }
             steps {
                 sh 'echo scanning!'
