@@ -31,7 +31,7 @@ pipeline {
             }
         }
         stage('docker push') {
-            agent {
+            agent 
                 steps {
                     sh 'echo docker push!'
                     script{
@@ -42,7 +42,7 @@ pipeline {
 
                     }
                 }
-                }
+                
             }
         stage('Deploy App') {
             steps {
