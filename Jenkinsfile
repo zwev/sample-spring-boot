@@ -31,7 +31,7 @@ pipeline {
             }
         }
         stage('docker push') {
-            agent 
+            agent any
                 steps {
                     sh 'echo docker push!'
                     script{
