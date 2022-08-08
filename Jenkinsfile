@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
         environment {
         ENV_DOCKER = credentials('dockerhub')
         DOCKERIMAGE = "toomanycooks/junkrepo"
@@ -31,8 +31,17 @@ pipeline {
             }
         }
         stage('docker push') {
-            steps {
-                sh 'echo docker push!'
+            agent {
+                steps {
+                    sh 'echo docker push!'
+                    script{
+                        docker.withRegistry('', 'dockerhub') {
+                            image.push("BUILD_ID")
+                            image.push('latest')
+                        }
+
+                    }
+                }
                 }
             }
         stage('Deploy App') {
