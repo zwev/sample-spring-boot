@@ -32,12 +32,12 @@ pipeline {
         }
         stage('docker push') {
             agent any
-                steps {
+            steps {
                     sh 'echo docker push!'
-                script {
-                    docker.withRegistry('', 'dockerhub') {
-                        image.push("$BUILD_ID")
-                        image.push('latest')
+                    script {
+                        docker.withRegistry('', 'dockerhub') {
+                            image.push("$BUILD_ID")
+                            image.push('latest')
                     }
                 }
                 
