@@ -42,11 +42,12 @@ pipeline {
                 }
                 
             }
+        }
         stage('Deploy App') {
             steps {
                 sh 'echo deploy to kubernetes'               
             }
     }
-}
+
 }
 }
