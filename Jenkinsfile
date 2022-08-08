@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
         environment {
         ENV_DOCKER = credentials('dockerhub')
         DOCKERIMAGE = "toomanycooks/junkrepo"
@@ -7,7 +7,7 @@ pipeline {
     }
     stages {
         stage('build') {
-            agent any {
+            agent {
                 docker { image 'openjdk:11-jdk' }
             }
             steps {
@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('sonarqube') {
-        agent any {
+        agent {
             docker { image 'emeraldsquad/sonar-scanner:latest' } }
             steps {
                 sh 'echo scanning!'
