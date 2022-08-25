@@ -55,7 +55,7 @@ pipeline {
                 sh 'echo deploy to kubernetes' 
                 
                 withAWS(credentials:'aws-credentials') {
-                    sh 'aws eks update-kubeconfig --name sre-primer'
+                    sh 'aws eks update-kubeconfig --name amazing-mushroom-1661437635'
                     sh 'chmod +x deployment-status.sh && ./deployment-status.sh'
                     sh "kubectl set image deployment sample-spring-boot -n ari-ochoa springboot-sample=$ENV_DOCKER_USR/$DOCKERIMAGE:$BUILD_ID"
                 }
