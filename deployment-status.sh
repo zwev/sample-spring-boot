@@ -5,4 +5,6 @@ fi
 
 if ! kubectl rollout status deployment sample-spring-boot -n ari-ochoa; then
     kubectl apply -f kubernetes.yml
+    else
+        kubectl apply -f kubernetes.yml
 fi
