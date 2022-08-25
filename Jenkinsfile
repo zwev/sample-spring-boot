@@ -4,7 +4,7 @@ pipeline {
         ENV_DOCKER = credentials('dockerhub')
         DOCKERIMAGE = "toomanycooks/junkrepo"
         EKS_CLUSTER_NAME = "sre-lab"
-        SONAR_TOKEN = credentials('sonar-token')
+        SONAR_TOKEN = credentials('sonartoken')
     }
     stages {
         stage('build') {
