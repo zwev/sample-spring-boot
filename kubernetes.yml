@@ -15,7 +15,7 @@ spec:
         app: sample-spring-boot
     spec:
       containers:
-        - name: springboot-sample
+        - name: sample-spring-boot
           image: toomanycooks/junkrepo:latest
           ports:
             - containerPort: 8080
